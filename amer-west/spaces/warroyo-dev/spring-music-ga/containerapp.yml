@@ -10,14 +10,14 @@ spec:
   contact:
     team: warroyo
   content:
-    buildTimestamp: "2024-09-16T18:02:50Z"
-    gitCommit: d1e59f1a9b5b12563a10c9859398b5b6d799a9ed-dirty
+    buildTimestamp: "2024-09-16T18:32:21Z"
+    gitCommit: 7d80d184e51741ca1584795a88929792d663a475-dirty
     gitURL: github.com/warroyo/spring-music.git
-    packageImage: ghcr.io/warroyo/spring-music-ga@sha256:6387107ac61695a8959ee78f9208ec0959dae31ff2ec40150ce6b8a6d15fee85
+    packageImage: ghcr.io/warroyo/spring-music-ga@sha256:8e86121cb0e7b702f5d9b8650154448de13ba24355f7d313caf9f6295913a078
     packageRefName: spring-music-ga.apps.local
-    packageVersion: 20240916.1802.50743
-    summary: git:d1e59f1 @ 2024-09-16T18:02:50Z
-    version: 20240916.1802.50743
+    packageVersion: 20240916.1832.21689
+    summary: git:7d80d18 @ 2024-09-16T18:32:21Z
+    version: 20240916.1832.21689
   health:
     maxUnavailableReplicas: 10%
   image: ghcr.io/warroyo/spring-music-ga@sha256:95fcc45cbd21773901a385bef062bb236b521a6cd9ab27b4257eda2dc01d0068
@@ -77,7 +77,7 @@ spec:
   - apiGroup: data.packaging.carvel.dev
     for: kubernetes.delete
     kind: Package
-    name: spring-music-ga.apps.local.20240916.1802.50743
+    name: spring-music-ga.apps.local.20240916.1832.21689
   - for: kubernetes.delete
     kind: Secret
     name: spring-music-ga-values
