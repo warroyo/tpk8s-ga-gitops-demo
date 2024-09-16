@@ -36,6 +36,6 @@ jobs:
             tanzu login
             tanzu project use AMER-West
             cd amer-west
-            tanzu deploy -y
+            tanzu deploy --nested-contexts -y
       
       - run: echo "🍏 This job's status is ${{ job.status }}."
