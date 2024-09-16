@@ -1,5 +1,5 @@
 name: TPK8S Gitops
-run-name: ${{ github.actor }} building app
+run-name: ${{ github.actor }} deploying app
 on:
   push:
     branches:
