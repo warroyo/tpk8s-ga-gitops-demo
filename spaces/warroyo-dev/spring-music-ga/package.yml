@@ -1,0 +1,31 @@
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: Package
+metadata:
+  annotations:
+    apps.tanzu.vmware.com/promotable: ""
+    apps.tanzu.vmware.com/promote-group: ContainerApp/spring-music-ga
+  creationTimestamp: null
+  name: spring-music-ga.apps.local.20240916.1802.50743
+spec:
+  refName: spring-music-ga.apps.local
+  releasedAt: "2024-09-16T18:04:29Z"
+  template:
+    spec:
+      deploy:
+      - kapp:
+          rawOptions:
+          - --wait=false
+      fetch:
+      - imgpkgBundle:
+          image: ghcr.io/warroyo/spring-music-ga@sha256:6387107ac61695a8959ee78f9208ec0959dae31ff2ec40150ce6b8a6d15fee85
+      template:
+      - ytt:
+          paths:
+          - config/
+      - kbld:
+          paths:
+          - .imgpkg/images.yml
+          - '-'
+  valuesSchema:
+    openAPIv3: null
+  version: 20240916.1802.50743
