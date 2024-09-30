@@ -21,8 +21,6 @@ jobs:
       - name: Install tanzu plugins
         run: |
           tanzu plugin install --group vmware-tanzu/app-developer
-          export TANZU_CLI_INCLUDE_DEACTIVATED_PLUGINS_TEST_ONLY=true
-          tanzu plugin install resource --version v0.3.0
 
       - name: Check out repository code
         uses: actions/checkout@v4
