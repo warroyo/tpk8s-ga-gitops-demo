@@ -10,17 +10,17 @@ spec:
   contact:
     team: warroyo
   content:
-    buildTimestamp: "2024-09-30T21:59:52Z"
-    gitCommit: 77e70941d51e5e7a9274217439031b6dd1cbbbef-dirty
+    buildTimestamp: "2024-10-10T19:56:54Z"
+    gitCommit: ba3767cff45128ef66b837a396ff441a33be06ea-dirty
     gitURL: github.com/warroyo/spring-music.git
-    packageImage: ghcr.io/warroyo/spring-music-ga@sha256:c171053c4f78e4ff4ff2ccc1314f0b5ff54b9adc509bfcb38e776d5c9ef596d0
+    packageImage: ghcr.io/warroyo/spring-music-ga@sha256:e800bb4b421a8a6e40e357190bbc6e15079731efe28fe75d06a58a60e6bdb374
     packageRefName: spring-music-ga.apps.local
-    packageVersion: 20240930.2159.52377
-    summary: git:77e7094 @ 2024-09-30T21:59:52Z
-    version: 20240930.2159.52377
+    packageVersion: 20241010.1956.54464
+    summary: git:ba3767c @ 2024-10-10T19:56:54Z
+    version: 20241010.1956.54464
   health:
     maxUnavailableReplicas: 10%
-  image: ghcr.io/warroyo/spring-music-ga:20240930.2159.52377@sha256:95fcc45cbd21773901a385bef062bb236b521a6cd9ab27b4257eda2dc01d0068
+  image: ghcr.io/warroyo/spring-music-ga:20241010.1956.54464@sha256:4f7fbc6b9297118c0e7367945a0423fcbe5deb8b2cf036b9876085ea858af1c5
   nonSecretEnv:
   - name: JAVA_TOOL_OPTIONS
     value: -Dmanagement.endpoint.health.probes.add-additional-paths=true -Dmanagement.health.probes.enabled=true
@@ -77,7 +77,7 @@ spec:
   - apiGroup: data.packaging.carvel.dev
     for: kubernetes.delete
     kind: Package
-    name: spring-music-ga.apps.local.20240930.2159.52377
+    name: spring-music-ga.apps.local.20241010.1956.54464
   - for: kubernetes.delete
     kind: Secret
     name: spring-music-ga-values
