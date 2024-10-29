@@ -5,10 +5,10 @@ metadata:
     apps.tanzu.vmware.com/promotable: ""
     apps.tanzu.vmware.com/promote-group: ContainerApp/spring-music-ga
   creationTimestamp: null
-  name: spring-music-ga.apps.local.20240930.2159.52377
+  name: spring-music-ga.apps.local.20241029.1935.3129
 spec:
   refName: spring-music-ga.apps.local
-  releasedAt: "2024-09-30T22:01:24Z"
+  releasedAt: "2024-10-29T19:38:02Z"
   template:
     spec:
       deploy:
@@ -17,7 +17,7 @@ spec:
           - --wait=false
       fetch:
       - imgpkgBundle:
-          image: ghcr.io/warroyo/spring-music-ga@sha256:c171053c4f78e4ff4ff2ccc1314f0b5ff54b9adc509bfcb38e776d5c9ef596d0
+          image: us-west1-docker.pkg.dev/fe-cpage/west-sa-build-registry/warroyo/spring-music-ga@sha256:566ddf9c016bb9837bff3e45d4d07f25447886beda8553cddb844ba79a857d3a
       template:
       - ytt:
           paths:
@@ -28,4 +28,4 @@ spec:
           - '-'
   valuesSchema:
     openAPIv3: null
-  version: 20240930.2159.52377
+  version: 20241029.1935.3129
