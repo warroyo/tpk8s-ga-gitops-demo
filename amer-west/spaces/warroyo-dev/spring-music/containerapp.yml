@@ -1,0 +1,98 @@
+apiVersion: apps.tanzu.vmware.com/v1
+kind: ContainerApp
+metadata:
+  annotations:
+    apps.tanzu.vmware.com/promotable: ""
+    apps.tanzu.vmware.com/promote-group: ContainerApp/spring-music
+    containerapp.apps.tanzu.vmware.com/class: kubernetes
+  name: spring-music
+spec:
+  contact:
+    team: warroyo
+  content:
+    buildTimestamp: "2024-12-05T21:36:30Z"
+    gitCommit: 5e66a4141134b06548d0cec501d39e535ddd6e6c-dirty
+    gitURL: github.com/warroyo/spring-music.git
+    packageImage: us-west1-docker.pkg.dev/fe-cpage/west-sa-build-registry/warroyo/spring-music@sha256:d77bfafab767aaa199a3d661f574c0da79934fcc9ab9a69ee00249ac81b5b4b1
+    packageRefName: spring-music.apps.local
+    packageVersion: 20241205.2136.30614
+    summary: git:5e66a41 @ 2024-12-05T21:36:30Z
+    version: 20241205.2136.30614
+  health:
+    maxUnavailableReplicas: 10%
+  image: us-west1-docker.pkg.dev/fe-cpage/west-sa-build-registry/warroyo/spring-music:20241205.2136.30614@sha256:ad062efdafc6b4acd709702bf73463ec943aa562fa3c7871e4afcc4627a2c0fb
+  nonSecretEnv:
+  - name: JAVA_TOOL_OPTIONS
+    value: -Dmanagement.endpoint.health.probes.add-additional-paths=true -Dmanagement.endpoints.web.exposure.include=health,info
+      -Dmanagement.health.probes.enabled=true -Dmanagement.info.build.enabled=true
+      -Dmanagement.info.git.enabled=true -Dmanagement.info.java.enabled=true -Dmanagement.info.os.enabled=true
+      -Dmanagement.info.process.enabled=true -Dmanagement.server.port=8081 -Dserver.port=8080
+      -Dserver.shutdown.grace-period=24s
+  ports:
+  - name: main
+    port: 8080
+    protocol: HTTP
+  probes:
+    liveness:
+      httpGet:
+        path: /livez
+        port: 8080
+        scheme: HTTP
+    readiness:
+      httpGet:
+        path: /readyz
+        port: 8080
+        scheme: HTTP
+    startup:
+      failureThreshold: 120
+      httpGet:
+        path: /readyz
+        port: 8080
+        scheme: HTTP
+      initialDelaySeconds: 1
+      periodSeconds: 1
+  relatedRefs:
+  - for: kubernetes.list-replicas
+    kind: Pod
+    labelSelector: containerapp.apps.tanzu.vmware.com/app-name=spring-music
+  - apiGroup: apps
+    for: kubernetes.service-binding-target
+    kind: Deployment
+    name: spring-music
+  - for: kubernetes.service-target
+    kind: Service
+    name: spring-music
+  - for: kubernetes.scale-replicas
+    keyPath: .data['values.yml']->[yaml].replicas
+    kind: Secret
+    name: spring-music-values
+  - for: kubernetes.scale-resources
+    keyPath: .data['values.yml']->[yaml].resources
+    kind: Secret
+    name: spring-music-values
+  - for: kubernetes.set-secret-env
+    keyPath: .data['values.yml']->[yaml].secretEnv
+    kind: Secret
+    name: spring-music-values
+  - apiGroup: packaging.carvel.dev
+    for: kubernetes.delete
+    kind: PackageInstall
+    name: spring-music
+  - apiGroup: data.packaging.carvel.dev
+    for: kubernetes.delete
+    kind: Package
+    name: spring-music.apps.local.20241205.2136.30614
+  - for: kubernetes.delete
+    kind: Secret
+    name: spring-music-values
+  - for: kubernetes.set-content-hash
+    keyPath: .data['values.yml']->[yaml].contentHash
+    kind: Secret
+    name: spring-music-values
+  - for: kubernetes.set-content-version
+    keyPath: .data['values.yml']->[yaml].contentVersion
+    kind: Secret
+    name: spring-music-values
+  resources:
+    cpu: 300m
+    memory: 1Gi

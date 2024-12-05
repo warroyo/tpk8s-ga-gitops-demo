@@ -1,0 +1,21 @@
+apiVersion: packaging.carvel.dev/v1alpha1
+kind: PackageInstall
+metadata:
+  annotations:
+    apps.tanzu.vmware.com/promotable: ""
+    apps.tanzu.vmware.com/promote-group: ContainerApp/spring-music
+  creationTimestamp: null
+  name: spring-music
+spec:
+  packageRef:
+    refName: spring-music.apps.local
+    versionSelection:
+      constraints: 20241205.2136.30614
+  serviceAccountName: carvel-package-installer
+  values:
+  - secretRef:
+      name: spring-music-values
+status:
+  conditions: null
+  friendlyDescription: ""
+  observedGeneration: 0
