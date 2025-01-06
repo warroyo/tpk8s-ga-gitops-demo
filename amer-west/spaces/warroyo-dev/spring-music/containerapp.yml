@@ -10,17 +10,17 @@ spec:
   contact:
     team: warroyo
   content:
-    buildTimestamp: "2025-01-06T20:56:11Z"
-    gitCommit: 747e64d5a390068031ac6cd71c001dc0cb48e61b-dirty
+    buildTimestamp: "2025-01-06T23:20:25Z"
+    gitCommit: d31ad50b33e2602cfe9d519c5f8e543ce6fd6ff8-dirty
     gitURL: github.com/warroyo/spring-music.git
-    packageImage: us-west1-docker.pkg.dev/fe-cpage/west-sa-build-registry/warroyo/spring-music@sha256:92a4fded0b1cd331683dfa786da97a9cb866be46beadaec9263a169f0e7f24cb
+    packageImage: us-west1-docker.pkg.dev/fe-cpage/west-sa-build-registry/warroyo/spring-music@sha256:06d08a3b1548867e7f358126a4d415a9559120c1e886360fbcc6aa2102e047e5
     packageRefName: spring-music.apps.local
-    packageVersion: 20250106.2056.11913
-    summary: git:747e64d @ 2025-01-06T20:56:11Z
-    version: 20250106.2056.11913
+    packageVersion: 20250106.2320.25536
+    summary: git:d31ad50 @ 2025-01-06T23:20:25Z
+    version: 20250106.2320.25536
   health:
     maxUnavailableReplicas: 10%
-  image: us-west1-docker.pkg.dev/fe-cpage/west-sa-build-registry/warroyo/spring-music:20250106.2056.11913@sha256:4c53c8dbd0fa26bd66258e53a09e7eb329a15e32cc40cbecea974f259efe66ec
+  image: us-west1-docker.pkg.dev/fe-cpage/west-sa-build-registry/warroyo/spring-music:20250106.2320.25536@sha256:247f75fd10c3e4a72878f8367faa5e7dbaade99688a7e09bfea58e233fdfee9b
   nonSecretEnv:
   - name: JAVA_TOOL_OPTIONS
     value: -Dmanagement.endpoint.health.probes.add-additional-paths=true -Dmanagement.endpoints.web.exposure.include=health,info
@@ -81,7 +81,7 @@ spec:
   - apiGroup: data.packaging.carvel.dev
     for: kubernetes.delete
     kind: Package
-    name: spring-music.apps.local.20250106.2056.11913
+    name: spring-music.apps.local.20250106.2320.25536
   - for: kubernetes.delete
     kind: Secret
     name: spring-music-values
