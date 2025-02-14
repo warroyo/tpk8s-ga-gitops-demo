@@ -1,0 +1,13 @@
+apiVersion: networking.tanzu.vmware.com/v1alpha1
+kind: DomainBinding
+metadata:
+  name: spring-music
+  namespace: default
+spec:
+  autoAssign:
+    port: false
+    subdomainOf: apps.sm-ast.azure.warroyo.com
+  domain: spring-music-dev.apps.sm-ast.azure.warroyo.com
+  entrypoint: spring-music
+  http: {}
+  port: 443
