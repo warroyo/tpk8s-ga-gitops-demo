@@ -10,18 +10,18 @@ spec:
   contact:
     team: warroyo
   content:
-    buildTimestamp: "2025-02-13T23:16:34Z"
-    gitCommit: 73ba7b00e69a44fdb8c2918e5baf72e1b492b834
+    buildTimestamp: "2025-02-14T16:57:42Z"
+    gitCommit: 3045044b1d1d6007069a1a168d8d18076cd458a2
     gitRef: supply-chain
     gitURL: github.com/warroyo/spring-music.git
-    packageImage: tpsmwarroyo.azurecr.io/apps/warroyo/spring-music@sha256:75e3a60263470c6ed94e65c49a0e8c722a7b6b722973bf882db91853ac0db20e
+    packageImage: tpsmwarroyo.azurecr.io/apps/warroyo/spring-music@sha256:015d1d7663916372fa3e08e58026e5e8cc1d79ebd3061f7dde942ed544a7fa9f
     packageRefName: spring-music.apps.local
-    packageVersion: 20250213.2316.34671
-    summary: git:73ba7b0 @ 2025-02-13T23:16:34Z
-    version: 20250213.2316.34671
+    packageVersion: 20250214.1657.42714
+    summary: git:3045044 @ 2025-02-14T16:57:42Z
+    version: 20250214.1657.42714
   health:
     maxUnavailableReplicas: 10%
-  image: tpsmwarroyo.azurecr.io/apps/warroyo/spring-music:20250213.2316.34671@sha256:6ba59673376ee738a74aac61676ae436df9dba15ac4cadd3b6832b3bc48a597a
+  image: tpsmwarroyo.azurecr.io/apps/warroyo/spring-music:20250214.1657.42714@sha256:5d5dad7591ee719d7b56dc45335050204e4ffe39fce6cc5456ddf55b0374b02b
   nonSecretEnv:
   - name: JAVA_TOOL_OPTIONS
     value: -Dmanagement.endpoint.health.probes.add-additional-paths=true -Dmanagement.endpoints.web.exposure.include=health,info
@@ -82,7 +82,7 @@ spec:
   - apiGroup: data.packaging.carvel.dev
     for: kubernetes.delete
     kind: Package
-    name: spring-music.apps.local.20250213.2316.34671
+    name: spring-music.apps.local.20250214.1657.42714
   - for: kubernetes.delete
     kind: Secret
     name: spring-music-values
